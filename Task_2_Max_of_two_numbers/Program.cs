@@ -6,5 +6,7 @@ Console.WriteLine("Введите второе число:");
 int number2 = Convert.ToInt32(Console.ReadLine());
 if (number1 > number2)                                 // Если первое число больше
     Console.WriteLine($"Большее число: {number1}, меньшее число: {number2}");   // то выводим это сообщение
-else 
-    Console.WriteLine($"Большее число: {number2}, меньшее число: {number1}");   // инача выводим это сообщение
+if (number1 < number2)                                 // Если первое число меньше
+    Console.WriteLine($"Большее число: {number2}, меньшее число: {number1}");   // то выводим это сообщение
+if (number1 == number2)                                // Если числа равны
+    Console.WriteLine($"Числа равны");                 // то выводим это сообщение
