@@ -2,12 +2,10 @@
 
 void ShowMeNumbers(int number)                      // функция для вывода на экран чисел от -N до N
 {
-    int startNumber = -number;                      // начальное число равное -N
-    int count = 2* number + 1;                      // определяем, сколько всего чисел от -N до N
-    for (int index = 0; index < count; index++) 
+    int startNumber = -number;                      // начальное число равное -N                      
+    for (int index = -number; index <= number; index++)  // в цикле от -N до N 
     {
-        Console.Write($"{startNumber} ");           // выводим текущее число на экран
-        startNumber++;                              // получаем следующее число
+        Console.Write($"{index} ");                 // выводим текущее число на экран
     }
 }
 
