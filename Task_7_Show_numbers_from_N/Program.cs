@@ -1,8 +1,7 @@
 ﻿//  7. Показать числа от -N до N
 
 void ShowMeNumbers(int number)                      // функция для вывода на экран чисел от -N до N
-{
-    int startNumber = -number;                      // начальное число равное -N                      
+{                     
     for (int index = -number; index <= number; index++)  // в цикле от -N до N 
     {
         Console.Write($"{index} ");                 // выводим текущее число на экран
