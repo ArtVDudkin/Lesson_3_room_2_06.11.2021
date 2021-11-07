@@ -12,7 +12,7 @@ Console.WriteLine("Введите номер дня недели от 1 до 7:"
 int day = Convert.ToInt32(Console.ReadLine());               // Преобразуем введенное значение в целочисленный тип
 while ( (day < 1) || (day > 7) )
 {
-    Console.WriteLine("Введенное некорректное значение. Введите номер дня недели от 1 до 7!");
+    Console.WriteLine("Введено некорректное значение. Введите номер дня недели от 1 до 7!");
     day = Convert.ToInt32(Console.ReadLine());
 }
 
