@@ -19,11 +19,10 @@ string TrueOrFalse(int x, int y)
     // else flagY = true;
     bool left =  !(flagX || flagY);         // это левая часть утверждения ¬(X ⋁ Y)
     bool right = !(flagX) && !(flagY);      // это правая часть утверждения ¬X ⋀ ¬Y
-  //  return (left == right);                 // возвращает истину, если левая и правая части утверждения равны
     if (left == right)                      // если левая и правая части утверждения равны
         result = $"{x} | {y} | ¬({x} ⋁ {y}) = {left} " + "\t" + $" | ¬{x} ⋀ ¬{y} = {right} "  + "\t  " + "| Истинно"; // выводим это сообщение
     else                                    // иначе выводим это сообщение
-        result = $"{x} | {y} | ¬({x} ⋁ {y}) = {left} | ¬{x} ⋀ ¬{y} = {right} | Ложно";
+        result = $"{x} | {y} | ¬({x} ⋁ {y}) = {left} " + "\t" + $" | ¬{x} ⋀ ¬{y} = {right} "  + "\t  " + "| Ложно";
     return result;                          // возвращает итоговую строку
 }
 
