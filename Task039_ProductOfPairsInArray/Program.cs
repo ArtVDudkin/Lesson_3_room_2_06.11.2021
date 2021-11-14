@@ -1,27 +1,43 @@
 ﻿// 39. Найти произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д.
 
-int FillArray()                                 // функция для заполнения массива
+int[] CreateArray(int count)                    // функция для создания массива
 {
-    return new Random().Next(0, 10);            // заполняем элементы массива случайно значениями из [0,9]
+    return new int[count];                      // размерности count, по умолчанию заполнен нулями
 }
 
-int ProductOfPairs(int first, int last)         // функция для расчета произведения пар элементов массива
+void FillArray(int[] array, int minValue, int maxValue)     // функция для заполнения массива
 {
-    return first*last;
+    int count = array.Length;
+    for (int i = 0; i < count; i++)
+    {
+        array[i] = new Random().Next(minValue, maxValue);   // заполняем случайными числами от minValue до maxValue
+    }
 }
 
-int size = 11;                                  // задаем размерность массива
-int[] array = new int[size];                    // создаем массив из size элементов
-
-Console.WriteLine($"Исходный массив из {array.Length} элементов");
-for (int index = 0; index < array.Length; index++)
+string PrintArray(int[] array)                  // функция для вывода массива на экран
 {
-    array[index] = FillArray();                 // заполняем элементы массива случайными числами
-    Console.Write($"{array[index]} ");
+    int count = array.Length;                   
+    string res = String.Empty;                  // создаем пустую строку
+    for (int i = 0; i < count; i++)
+    {
+        res += $"{array[i]} ";                  // формируем строку для вывода на экран
+    }
+    return res;
 }
-Console.WriteLine();
 
-for (int index = 0; index < array.Length / 2; index++)
+string ProductOfPairs(int[] array)              // функция для нахождения произведения пар элементов массива
 {
-    Console.WriteLine($"Произведение пары {array[index]} х {array[array.Length -1 - index]} = {ProductOfPairs(array[index], array[array.Length -1 - index])}");
+    int count = array.Length;
+    string result = string.Empty;               // контейнер для итогового сообщения
+    for (int i = 0; i < count / 2; i++)         // от начала до половины от размерности массива
+        result += $"Произведение пары {array[i]} х {array[count -1 - i]} = {array[i] * array[count -1 - i]} \n"; 
+                                                // находим произведение пары и выполняем принудительный перенос на новую строку \n
+    return result;
 }
+
+Console.Clear();
+int[] arr = CreateArray(12);                    // создаем массив из 12 элементов
+FillArray(arr, 0, 10);                          // заполняем массив случайными числами от [0,9]
+Console.WriteLine($"Массив из {arr.Length} элементов");
+Console.WriteLine(PrintArray(arr));             // выводим массив на экран
+Console.WriteLine(ProductOfPairs(arr));         // выводим на экран результат
