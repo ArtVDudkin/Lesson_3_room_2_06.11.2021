@@ -1,14 +1,32 @@
 ﻿// 31. Задать массив из 8 элементов и вывести их на экран
 
-string PrintArray(char[] array)
-{   
-    string result = string.Empty;                                  // Создаем пустую строку 
-    for (int index = 0; index < array.Length; index++)
-        result += $"{Convert.ToChar(new Random().Next(65,90))} ";  // 65-90 это символы A..Z в таблице кодировок
-    return result;
+char[] CreateArray(int count)                    // функция для создания массива
+{
+    return new char[count];                      // размерности count, по умолчанию заполнен пустыми символами
 }
 
-char[] array = new char[8];                                         // создаем массив из 8 символов (по умолчанию пустой)
+void FillArray(char[] array, int minValue, int maxValue)     // функция для заполнения массива
+{
+    int count = array.Length;
+    for (int i = 0; i < count; i++)
+    {
+        array[i] = Convert.ToChar(new Random().Next(minValue, maxValue));  // заполняем случайными символами от minValue до maxValue
+    }
+}
 
+string PrintArray(char[] array)                  // функция для вывода массива на экран
+{
+    int count = array.Length;                   
+    string res = String.Empty;                  // создаем пустую строку
+    for (int i = 0; i < count; i++)
+    {
+        res += $"{array[i]} ";                  // формируем строку для вывода на экран
+    }
+    return res;
+}
+
+Console.Clear();
+char[] arr = CreateArray(8);                    // создаем массив из 8 элементов
+FillArray(arr, 65, 90);                         // заполняем массив случайными символами с индексами от A до Z
 Console.WriteLine("Массив из 8 элементов");
-Console.WriteLine(PrintArray(array));                               // вызываем функцию и выводим на экран массив символов
+Console.WriteLine(PrintArray(arr));             // выводим массив на экран
