@@ -1,28 +1,44 @@
-﻿// 34. Написать программу замену элементов массива на противоположные
+﻿// 34. Написать программу замены элементов массива на противоположные
 
-int FillArray()                                 // функция для заполнения массива
+int[] CreateArray(int count)                    // функция для создания массива
 {
-    return new Random().Next(-9, 10);           // заполняем элементы массива случайно значениями из [-9,9]
+    return new int[count];                      // размерности count, по умолчанию заполнен нулями
 }
 
-int ReplaceArray(int n)                         // функция для замены элементов на противоположные
+void FillArray(int[] array, int minValue, int maxValue)     // функция для заполнения массива
 {
-    return -1*n;                                // возвращаем инвертированное значение элемента массива
+    int count = array.Length;
+    for (int i = 0; i < count; i++)
+    {
+        array[i] = new Random().Next(minValue, maxValue);   // заполняем случайными числами от minValue до maxValue
+    }
 }
 
-int[] array = new int[12];                      // создаем массив из 12 элементов
-
-Console.WriteLine("Исходный массив из 12 элементов");
-for (int index = 0; index < array.Length; index++)
+string PrintArray(int[] array)                  // функция для вывода массива на экран
 {
-    array[index] = FillArray();
-    Console.Write($"{array[index]} ");
+    int count = array.Length;                   
+    string res = String.Empty;                  // создаем пустую строку
+    for (int i = 0; i < count; i++)
+    {
+        res += $"{array[i]} ";                  // формируем строку для вывода на экран
+    }
+    return res;
 }
-Console.WriteLine();
+
+void ReplaceArray(int[] array)                            // функция для нахождения суммы положительных элементов массива
+{
+    int count = array.Length;
+    for (int i = 0; i < count; i++)
+    {
+        array[i] = -1*array[i];
+    }
+}
+
+Console.Clear();
+int[] arr = CreateArray(12);                    // создаем массив из 12 элементов
+FillArray(arr, -10, 10);                          // заполняем массив случайными числами от 0 до 9
+Console.WriteLine("Массив из 12 элементов");
+Console.WriteLine(PrintArray(arr));             // выводим исходный массив на экран
+ReplaceArray(arr);                              // заменяем элементы в массиве на противоположные
 Console.WriteLine("Массив с элементами, замененными на противоположные");
-for (int index = 0; index < array.Length; index++)
-{
-    array[index] = ReplaceArray(array[index]);
-    Console.Write($"{array[index]} ");
-}
-Console.WriteLine();
+Console.WriteLine(PrintArray(arr));             // выводим измененный массив на экран
