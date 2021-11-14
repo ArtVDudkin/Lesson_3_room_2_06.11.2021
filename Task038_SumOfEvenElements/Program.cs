@@ -1,26 +1,44 @@
 ﻿// 38. Найти сумму чисел одномерного массива стоящих на нечетной позиции
 
-int FillArray()                                 // функция для заполнения массива
+int[] CreateArray(int count)                    // функция для создания массива
 {
-    return new Random().Next(0, 10);            // заполняем элементы массива случайно значениями из [0,9]
+    return new int[count];                      // размерности count, по умолчанию заполнен нулями
 }
 
-int SumOfEvenElements(int[] array)              // функция для суммирования элементов массива, стоящих на нечетных позициях
+void FillArray(int[] array, int minValue, int maxValue)     // функция для заполнения массива
 {
-    int sum = 0;
-    for (int index = 0; index < array.Length; index +=2)
-        sum += array[index];
-    return sum;
+    int count = array.Length;
+    for (int i = 0; i < count; i++)
+    {
+        array[i] = new Random().Next(minValue, maxValue);   // заполняем случайными числами от minValue до maxValue
+    }
 }
 
-int size = 20;                                  // задаем размерность массива
-int[] array = new int[size];                    // создаем массив из size элементов
-
-Console.WriteLine("Исходный массив элементов");
-for (int index = 0; index < array.Length; index++)
+string PrintArray(int[] array)                  // функция для вывода массива на экран
 {
-    array[index] = FillArray();                 // заполняем элементы массива случайными числами
-    Console.Write($"{array[index]} ");
+    int count = array.Length;                   
+    string res = String.Empty;                  // создаем пустую строку
+    for (int i = 0; i < count; i++)
+    {
+        res += $"{array[i]} ";                  // формируем строку для вывода на экран
+    }
+    return res;
 }
-Console.WriteLine();
-Console.WriteLine($"Сумма элементов, стоящих на нечетных позициях, равна: {SumOfEvenElements(array)}");
+
+string SumOfEven(int[] array)                   // функция для нахождения суммы элементов массива, стоящих на нечетных позициях
+{
+    int count = array.Length;
+    string result = string.Empty;               // контейнер для итогового сообщения
+    int sum = 0;                                // сумма значений элементов, стоящих на нечетных позициях
+    for (int i = 1; i < count; i+=2)
+        sum += array[i];                        // сумма значений элементов, стоящих на нечетных позициях
+    result = $"Сумма элементов, стоящих на нечетных позициях, равна: {sum}";
+    return result;
+}
+
+Console.Clear();
+int[] arr = CreateArray(12);                    // создаем массив из 12 элементов
+FillArray(arr, 0, 10);                          // заполняем массив случайными числами от [0,9]
+Console.WriteLine($"Массив из {arr.Length} элементов");
+Console.WriteLine(PrintArray(arr));             // выводим массив на экран
+Console.WriteLine(SumOfEven(arr));              // выводим на экран результат
