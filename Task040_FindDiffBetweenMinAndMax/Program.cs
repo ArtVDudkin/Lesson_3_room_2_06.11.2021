@@ -1,32 +1,54 @@
 ﻿// 40. В Указанном массиве вещественных чисел найдите разницу между максимальным и минимальным элементом
 
-// int FillArray()                                 // функция для заполнения массива
+// double[] CreateArray(int count)                 // функция для создания массива вещественных чисел
 // {
-//     return new Random().Next(0, 10);            // заполняем элементы массива случайно значениями из [0,9]
+//     return new int[count];                      // размерности count, по умолчанию заполнен нулями
 // }
 
-string DiffBetweenMinAndMax(double[] array)        // функция для расчета произведения пар элементов массива
+// void FillArray(double[] array, double minValue, double maxValue)     // функция для заполнения массива
+// {
+//     int count = array.Length;
+//     for (int i = 0; i < count; i++)
+//     {
+//         array[i] = new Random().Next(minValue, maxValue);   // заполняем случайными числами от minValue до maxValue
+//     }
+// }
+
+string PrintArray(double[] array)                  // функция для вывода массива на экран
+{
+    int count = array.Length;                   
+    string res = String.Empty;                     // создаем пустую строку
+    for (int i = 0; i < count; i++)
+    {
+        res += $"{array[i]}  ";                    // формируем строку для вывода на экран
+    }
+    return res;
+}
+
+double FindMax(double[] array)                     // функция для нахождения максимального элемента в массиве
 {
     double max = array[0];                         // контейнер для максимального значения
-    double min = array[0];                         // контейнер для минимального значения
-    for (int index = 0; index < array.Length; index++)
-    {
+    int count = array.Length;           
+    for (int index = 0; index < count; index++)
         if (array[index] > max) max = array[index];      
-        if (array[index] < min) min = array[index];
-    }
-    return $"Разница между максимальным элементом {max} и минимальным элементом {min} равна {Math.Round(max - min, 3)}";
+    return max;
 }
 
-double[] array = new double[10] {0.5, 1.5, 2.5, 3.1, 4.2, 0.2, 5.1, 6.1, 7.1, 5.7};             // создаем массив из 10 элементов
-
-
-Console.WriteLine("Исходный массив элементов");
-for (int index = 0; index < array.Length; index++)
+double FindMin(double[] array)                     // функция для нахождения минимального элемента в массиве
 {
-    //array[index] = FillArray();                 // заполняем элементы массива случайными числами
-    Console.Write($"{array[index]}  ");
+    double min = array[0];                         // контейнер для минимального значения
+     int count = array.Length;           
+    for (int index = 0; index < count; index++)   
+        if (array[index] < min) min = array[index];
+    return min;
 }
-Console.WriteLine();
 
-Console.WriteLine(DiffBetweenMinAndMax(array));
-
+Console.Clear();
+// double[] arr = CreateArray(10);                 // создаем вещественный массив из 10 элементов
+double[] array = new double[10] {0.5, 1.5, 2.5, 3.1, 4.2, -0.2, 5.1, 6.1, 7.1, 5.7};             // создаем массив из 10 элементов
+// FillArray(arr, 0, 10);                          // заполняем массив случайными числами от [0,9]
+Console.WriteLine($"Исходный массив из {array.Length} элементов");
+Console.WriteLine(PrintArray(array));             // выводим массив на экран
+double max = FindMax(array);                      // получаем максимальное значение в массиве  
+double min = FindMin(array);                      // получаем минимальное значение в массиве
+Console.WriteLine($"Разница между максимальным элементом {max} и минимальным элементом {min} равна {Math.Round(max - min, 3)}");   // выводим на экран результат
