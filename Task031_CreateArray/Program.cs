@@ -10,7 +10,7 @@ void FillArray(char[] array, int minValue, int maxValue)     // функция �
     int count = array.Length;
     for (int i = 0; i < count; i++)
     {
-        array[i] = Convert.ToChar(new Random().Next(minValue, maxValue));  // заполняем случайными символами от minValue до maxValue
+        array[i] = (char)new Random().Next(minValue, maxValue);  // заполняем случайными символами от minValue до maxValue
     }
 }
 
