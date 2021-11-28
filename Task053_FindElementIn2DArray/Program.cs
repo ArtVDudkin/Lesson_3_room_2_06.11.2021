@@ -41,9 +41,9 @@ void PrintArray(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {   // {array[i, j],2}  добавляем 2 пробела перед значением для красивого вывода отрицательных чисел
-            System.Console.Write($"{array[i, j],2} ");
+            Console.Write($"{array[i, j],2} ");
         }
-    System.Console.WriteLine();
+        Console.WriteLine();
     }
 }
 
