@@ -34,9 +34,9 @@ void PrintArray(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            System.Console.Write($"{array[i, j],2} ");
+            Console.Write($"{array[i, j],2} ");
         }
-    System.Console.WriteLine();
+        Console.WriteLine();
     }
 }
 
