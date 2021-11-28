@@ -35,7 +35,7 @@ void PrintArray(int[,] arr)
     {
         for (int j = 0; j < arr.GetLength(1); j++)
         {
-            Console.Write($"{arr[i, j]} ");
+            Console.Write($"{arr[i, j], 2} ");  // {array[i, j],2}  добавляем 2 пробела перед значением для красивого вывода
         }
         Console.WriteLine();
     }
