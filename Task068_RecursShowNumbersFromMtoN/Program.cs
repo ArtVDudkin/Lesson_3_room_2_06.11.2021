@@ -5,11 +5,11 @@ string ShowNextNumber(int m, int n)
     if (m == n) return $"{m}";
     if (m < n)
     {
-        return $"{m} {ShowNextNumber(m +1, n)}";
+        return $"{m} {ShowNextNumber(m +1, n)}"; // m m+1 m+2 ... n
     }
     else
     {
-        return $"{m} {ShowNextNumber(m -1, n)}";
+        return $"{m} {ShowNextNumber(m -1, n)}"; // m m-1 m-2 ... n
     }
 }
 
