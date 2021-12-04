@@ -2,17 +2,16 @@
 
 int SumFromMtoN(int m, int n)
 {
+    if (m == n) return n;
     if (m < n)
     {
-        if (m == n) return n;
-        else return m + SumFromMtoN(m +1, n);
+        return m + SumFromMtoN(m +1, n);
     }
     else
     {
-        if (m == n) return n;
         return m + SumFromMtoN(m -1, n);
     }
 }
 
 Console.Clear();
-Console.WriteLine(SumFromMtoN(-10, 10));
+Console.WriteLine(SumFromMtoN(10, -10));
