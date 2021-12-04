@@ -19,4 +19,4 @@ Console.Clear();
 Console.WriteLine(Akkerman(0, 0)); // = 1
 Console.WriteLine(Akkerman(1, 0)); // = 2
 Console.WriteLine(Akkerman(3, 0)); // = 5
-Console.WriteLine(Akkerman(4, 0)); // = 29
+Console.WriteLine(Akkerman(3, 2)); // = 29
