@@ -14,4 +14,4 @@ int SumFromMtoN(int m, int n)
 }
 
 Console.Clear();
-Console.WriteLine(SumFromMtoN(10, -10));
+Console.WriteLine(SumFromMtoN(-10, 10));
