@@ -3,7 +3,7 @@
 string ShowNextNumber(int n)
 {
     if (n == 1) return $"1";
-    else return $"{ShowNextNumber(n -1)} {n}";
+    else return $"{n} {ShowNextNumber(n -1)} ";
 }
 
 Console.Clear();
